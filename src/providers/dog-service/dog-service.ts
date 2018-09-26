@@ -9,6 +9,7 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class DogServiceProvider {
+  myBreed;
 
   constructor(public http: HttpClient) {
   }
@@ -17,4 +18,11 @@ export class DogServiceProvider {
     return this.http.get(`https://dog.ceo/api/breed/${breed}/images/random`);
   }
 
+  getMyBreed() {
+    return this.myBreed
+  }
+
+  setMyBreed(breed) {
+    this.myBreed = breed;
+  }
 }

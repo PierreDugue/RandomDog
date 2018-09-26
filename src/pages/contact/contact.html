@@ -8,10 +8,12 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      <ion-label>Changer la race</ion-label>
+      <ion-select (ionChange)="filterDog($event)">
+        <ion-option value="corgi/cardigan">Corgi</ion-option>
+        <ion-option value="bulldog-french">Bulldog francais</ion-option>
+      </ion-select>
     </ion-item>
   </ion-list>
 </ion-content>

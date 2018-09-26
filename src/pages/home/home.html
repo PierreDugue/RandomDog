@@ -1,14 +1,19 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Chiens aleatoires unlimited</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Corgis aleatoires</h2>
-  <ion-card (swipe)="getNextDog()">
-    <ion-item>
-      <img src="{{dog?.message}}" alt="">
-    </ion-item>
-  </ion-card>
+<ion-content class="backDogImg">
+  <div [hidden]="hideDog" class="blur-back" [ngStyle]="{ 'background-image': 'url(' + dog?.message + ')'}"></div>
+  <div class="center">
+    <div [hidden]="!hideDog" class="lds-heart">
+      <div></div>
+    </div>
+  </div>
+  <div class="dogImage" (swipe)="getNextDog()">
+    <div>
+      <img [hidden]="hideDog" src="{{dog?.message}}" alt="">
+    </div>
+  </div>
 </ion-content>

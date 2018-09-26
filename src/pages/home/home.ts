@@ -8,23 +8,29 @@ import { DogServiceProvider } from '../../providers/dog-service/dog-service';
 })
 export class HomePage implements OnInit {
   private dog;
-
+  private hideDog = false;
   constructor(public navCtrl: NavController,
     private dogService: DogServiceProvider) {
 
   }
 
   ngOnInit() {
-    this.getNextDog('corgi/cardigan');
+    this.dogService.setMyBreed('corgi/cardigan');
+    this.getNextDog();
   }
 
-  getNextDog(breed = 'corgi/cardigan') {
-    this.dogService.getRandomDog(breed).subscribe(res => {
+  getNextDog() {
+    this.hideDog = true;
+    this.dogService.getRandomDog(this.dogService.getMyBreed()).subscribe(res => {
       this.dog = res;
+      this.hideDog = false;
     }, error => {
       console.log('An error occured: ', error);
     });
   }
 
+  chooseBreed() {
+
+  }
 
 }
