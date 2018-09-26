@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Corgis aleatoires</h2>
+  <ion-card (swipe)="getNextDog()">
+    <ion-item>
+      <img src="{{dog?.message}}" alt="">
+    </ion-item>
+  </ion-card>
+</ion-content>
